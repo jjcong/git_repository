@@ -35,15 +35,16 @@ public class SelectSort {
 		}
 		*/
 
-	    //方式二
         for (int i = 1; i < a.length; i++) {
             int j = i;
             int wait = a[i];
 
+            //每次比较当前待排序的值与它之前的大小，如果小于就交换值
             while (j > 0 && wait < a[j - 1]) {
                 a[j] = a[j - 1];
                 j--;
             }
+            //j为最终停止比较的序号
             a[j] = wait;
 
         }
