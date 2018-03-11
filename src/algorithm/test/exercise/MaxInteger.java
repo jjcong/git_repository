@@ -13,6 +13,7 @@ public class MaxInteger {
 
         int shiftRightCount = 0;
 
+
         while (n != 0) {
             //返回n / 2 d的商
             n >>= 1;
