@@ -53,7 +53,7 @@ public class SelectSort {
 
 	public static void main(String[] args) {
 
-		int a[] = { 20, 40, 30, 10, 60, 50 };
+		int a[] = { 10, 40, 30, 20, 60, 50 };
 
 		System.out.printf("Before sort:");
 
