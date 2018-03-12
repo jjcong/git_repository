@@ -41,7 +41,44 @@ public class QuickSort {
 			
 		}
 	}
-	
+	public static void quickSort2(int[] arr, int low, int high) {
+
+	    if (low >= high) {
+	        return;
+        }
+
+        int pivot = partition(arr, low, high);
+
+	    //递归排序左子数组
+	    quickSort2(arr, low, pivot - 1);
+        //递归排序右子数组
+	    quickSort2(arr, pivot + 1, high);
+
+    }
+
+    public static int partition(int[] arr, int low, int high) {
+	    //中心设置
+	    int pivot = arr[low];
+
+	    while (low < high) {
+	        while (low < high && arr[high] >= pivot) {
+	            high--;
+            }
+            //交换比中心小的记录到左端
+            arr[low] = arr[high];
+
+	        while (low < high && arr[low] <= pivot) {
+	            low++;
+            }
+            //交换比中心小的记录到左端
+            arr[high] = arr[low];
+
+        }
+        //扫描完成，中心到位
+        arr[low] = pivot;
+
+	    return low;
+    }
 	public static void main(String[] args) {
 		int a[] = {30, 40, 60, 10, 20, 50};
 		
@@ -51,7 +88,7 @@ public class QuickSort {
 		}
 		System.out.println();
 		
-		quickSort(a, 0, a.length-1);
+		quickSort2(a, 0, a.length-1);
 		
 		System.out.println("After sort:");
 		for ( int i = 0; i < a.length; i++) {

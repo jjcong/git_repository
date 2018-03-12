@@ -24,6 +24,8 @@ public class MergeSort {
 		int k = 0; // 临时区域的索引
 
 		while (i <= mid && j <= end) {
+
+//		    tmp[k++] = a[i] <= a[j] ? a[i++] : a[j++];
 			if (a[i] <= a[j])
 				tmp[k++] = a[i++];
 			else
@@ -55,7 +57,7 @@ public class MergeSort {
 		if (a == null || start >= end)
 			return;
 
-		int mid = (end + start) / 2;
+		int mid =  start + (end - start) / 2;
 		mergeSortUp2Down(a, start, mid); // 递归排序a[start...mid]
 		mergeSortUp2Down(a, mid + 1, end); // 递归排序a[mid+1...end]
 
