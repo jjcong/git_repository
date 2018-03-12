@@ -38,7 +38,21 @@ public class InsertSort {
 			}
 		}	
 	}
-	
+	public static void insertSort2 (int[] arr, int n) {
+
+
+	    for (int i = 1; i < arr.length; i++) {
+	        int wait = arr[i];
+            int j = 0;
+
+            //如果满足条件，则后移一位
+	        for (j = i - 1;j >= 0 && wait < arr[j]; j--) {
+	            arr[j + 1] = arr[j];
+            }
+            //防止待排序的数
+            arr[j + 1] = wait;
+        }
+    }
 	public static void main(String[] args) {
 		
 		int[] a = {20, 40, 30, 10, 60, 50};
@@ -49,7 +63,7 @@ public class InsertSort {
 		}
 		System.out.println();
 		
-		insertSort(a, a.length);
+		insertSort2(a, a.length);
 		
 		System.out.println("After sort:");
 		for ( int i = 0; i < a.length; i++) {

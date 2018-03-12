@@ -9,7 +9,7 @@ package algorithm.test.order.selectsort;
  */
 public class SelectSort {
 
-	private static void selectSort(int[] a) {
+	private static void selectSort1(int[] a) {
 
 	    //方式一
 	    /*
@@ -63,7 +63,7 @@ public class SelectSort {
 
 		System.out.printf("\n");
 
-		selectSort(a);
+		selectSort1(a);
 		// shellSort2(a, a.length);
 
 		System.out.printf("After sort:");
