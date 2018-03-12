@@ -1,5 +1,7 @@
 package algorithm.test.order.quicksort;
 
+import com.sun.org.apache.bcel.internal.generic.SWAP;
+
 /**
  * @author j_cong
  * @date 2017年9月14日
@@ -7,6 +9,28 @@ package algorithm.test.order.quicksort;
  * @version V1.0.0
  */
 public class QuickSort {
+
+
+    public static void main(String[] args) {
+        int a[] = {30, 40, 60, 10, 20, 50};
+
+        System.out.println("Before sort:");
+        for ( int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
+
+        quickSort2(a, 0, a.length-1);
+
+        System.out.println("After sort:");
+        for ( int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
+    }
+
+
+
 	/*
 	 * 快速排序
 	 * 
@@ -36,8 +60,8 @@ public class QuickSort {
 				}
 			}
 			a[i] = x;
-			quickSort(a, l, i-1);   //递归调用
-			quickSort(a, i+1, r);   //递归调用
+			quickSort(a, l, i - 1);   //递归调用
+			quickSort(a, i + 1, r);   //递归调用
 			
 		}
 	}
@@ -79,24 +103,85 @@ public class QuickSort {
 
 	    return low;
     }
-	public static void main(String[] args) {
-		int a[] = {30, 40, 60, 10, 20, 50};
-		
-		System.out.println("Before sort:");
-		for ( int i = 0; i < a.length; i++) {
-			System.out.print(a[i] + " ");
-		}
-		System.out.println();
-		
-		quickSort2(a, 0, a.length-1);
-		
-		System.out.println("After sort:");
-		for ( int i = 0; i < a.length; i++) {
-			System.out.print(a[i] + " ");
-		}
-		System.out.println();	
-	}
-	
-	
-	
+
+
+    /**
+     * 快速排序----三数取中法
+     *
+     * @param arr
+     * @param low
+     * @param high
+     */
+    public static void quickSort3(int[] arr, int low, int high) {
+
+        if (low < high) {
+            //获取枢纽值，并将其放在当前待处理序列末尾
+            dealPivot(arr, low, high);
+            //枢纽值被放在序列末尾
+            int pivot = high - 1;
+            //左指针
+            int i = low;
+            //右指针
+            int j = high - 1;
+            while (true) {
+                while (arr[++i] < arr[pivot]) {
+                }
+                while (j > low && arr[--j] > arr[pivot]) {
+                }
+                if (i < j) {
+                    swap(arr, i, j);
+                } else {
+                    break;
+                }
+            }
+            if (i < high) {
+                swap(arr, i, high - 1);
+            }
+            quickSort(arr, low, i - 1);
+            quickSort(arr, i + 1, high);
+        }
+
+    }
+
+    /**
+     * 处理枢纽值
+     *
+     * @param arr
+     * @param low
+     * @param high
+     */
+    public static void dealPivot(int[] arr, int low, int high) {
+
+        int mid = low + (high - low) / 2;
+
+        if (arr[low] > arr[mid]) {
+            swap(arr, low, mid);
+        }
+
+        if (arr[low] > arr[high]) {
+            swap(arr, low, high);
+        }
+
+        if (arr[high] < arr[mid]) {
+            swap(arr, mid, high);
+        }
+
+        swap(arr, high - 1, mid);
+
+    }
+
+    /**
+     * 交换元素通用处理
+     *
+     * @param arr
+     * @param a
+     * @param b
+     */
+    public static void swap(int[] arr, int a, int b) {
+
+        int tmp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = arr[a];
+    }
+
 }
