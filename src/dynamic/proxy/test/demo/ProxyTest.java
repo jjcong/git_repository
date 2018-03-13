@@ -19,6 +19,7 @@ public class ProxyTest {
 
         //service经过绑定，就会进入invoke方法了
         service.sayHello("张三");
+        service.run();
 
     }
 }

@@ -9,4 +9,6 @@ package dynamic.proxy.test.demo;
 public interface HelloService {
 
     void sayHello(String name);
+
+    void run();
 }

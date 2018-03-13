@@ -19,4 +19,9 @@ public class HelloServiceImpl implements HelloService {
     public void sayHello(String name) {
         System.out.println("hello " + name);
     }
+
+    @Override
+    public void run() {
+        System.out.println("I can run!");
+    }
 }
