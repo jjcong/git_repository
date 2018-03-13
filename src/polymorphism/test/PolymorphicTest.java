@@ -1,5 +1,7 @@
 package polymorphism.test;
 
+import java.util.Observable;
+
 /**
  * @author j_cong
  * @date 2017年9月26日
@@ -47,7 +49,6 @@ public class PolymorphicTest {
 		B b = new B();
 		C c = new C();
 		D d = new D();
-		
 		System.out.println("1--" + a1.show(b));
 		System.out.println("2--" + a1.show(c));
 		System.out.println("3--" + a1.show(d));
