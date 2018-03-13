@@ -42,6 +42,7 @@ public class HelloServiceProxy implements InvocationHandler {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
         System.out.println("我是JDK动态代理");
         Object result = null;
 
