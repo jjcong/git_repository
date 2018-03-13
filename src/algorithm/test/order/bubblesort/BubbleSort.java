@@ -10,7 +10,7 @@ package algorithm.test.order.bubblesort;
 public class BubbleSort {
 
     /**
-     * 冒泡排序
+     * 冒泡排序,最简单粗暴的一种，但是效率最低，每一趟都要比较
      *
      * @param a  待排序的数组
      * @param n  数组的长度
@@ -31,7 +31,7 @@ public class BubbleSort {
 
 
     /**
-     * 冒泡排序
+     * 冒泡排序，改进版，从首尾逼近，并且增加交换标记，可大幅度提高数组在有序时的效率
      *
      * @param a  待排序的数组
      * @param n  数组的长度

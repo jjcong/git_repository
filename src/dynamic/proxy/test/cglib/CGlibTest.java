@@ -1,4 +1,6 @@
 package dynamic.proxy.test.cglib;
+
+
 /**
  * CGlib 动态代理测试类
  *

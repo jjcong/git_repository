@@ -2,9 +2,9 @@ package algorithm.test.order.heapsort;
 
 /**
  * @author j_cong
+ * @version V1.0.0
  * @date 2017年9月14日
  * @describe 堆排序
- * @version V1.0.0
  */
 public class HeapSort {
 
