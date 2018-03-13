@@ -14,10 +14,13 @@ public class HeapSort {
 	 * 注：数组实现的堆中，第N个节点的左孩子的索引值是(2N+1)，右孩子的索引是(2N+2)。
 	 * 其中，N为数组下标索引值，如数组中第1个数对应的N为0。
 	 * 
-	 * 参数说明： a -- 待排序的数组 start -- 被下调节点的起始位置(一般为0，表示从第1个开始) end --
-	 * 截至范围(一般为数组中最后一个元素的索引)
+	 * 参数说明：
+	 * a -- 待排序的数组
+	 * start -- 被下调节点的起始位置(一般为0，表示从第1个开始)
+	 * end --截至范围(一般为数组中最后一个元素的索引)
 	 */
 	public static void maxHeapDown(int[] a, int start, int end) {
+
 		int c = start; // 当前(current)节点的位置
 		int l = 2 * c + 1; // 左(left)孩子的位置
 		int tmp = a[c]; // 当前(current)节点的大小
@@ -41,6 +44,7 @@ public class HeapSort {
 	 * 参数说明： a -- 待排序的数组 n -- 数组的长度
 	 */
 	public static void heapSortAsc(int[] a, int n) {
+
 		int i, tmp;
 
 		// 从(n/2-1) --> 0逐次遍历。遍历之后，得到的数组实际上是一个(最大)二叉堆。
@@ -65,8 +69,10 @@ public class HeapSort {
 	 * 注：数组实现的堆中，第N个节点的左孩子的索引值是(2N+1)，右孩子的索引是(2N+2)。
 	 * 其中，N为数组下标索引值，如数组中第1个数对应的N为0。
 	 * 
-	 * 参数说明： a -- 待排序的数组 start -- 被下调节点的起始位置(一般为0，表示从第1个开始) end --
-	 * 截至范围(一般为数组中最后一个元素的索引)
+	 * 参数说明：
+	 *          a -- 待排序的数组
+	 *          start -- 被下调节点的起始位置(一般为0，表示从第1个开始)
+	 *          end -- 截至范围(一般为数组中最后一个元素的索引)
 	 */
 	public static void minHeapDown(int[] a, int start, int end) {
 		int c = start; // 当前(current)节点的位置
