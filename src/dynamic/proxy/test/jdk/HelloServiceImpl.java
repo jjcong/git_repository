@@ -1,4 +1,4 @@
-package dynamic.proxy.test.demo;
+package dynamic.proxy.test.jdk;
 
 /**
  * 动态代理接口实现类
