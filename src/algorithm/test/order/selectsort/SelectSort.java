@@ -35,12 +35,14 @@ public class SelectSort {
 		}
 		*/
 
+	    //此方法就是插入排序思想
         for (int i = 1; i < a.length; i++) {
             int j = i;
             int wait = a[i];
 
             //每次比较当前待排序的值与它之前的大小，如果小于就交换值
             while (j > 0 && wait < a[j - 1]) {
+                //相当于将比wait大的数向右移一位
                 a[j] = a[j - 1];
                 j--;
             }

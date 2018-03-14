@@ -59,6 +59,29 @@ public class BubbleSort {
 			}
 		}
 	}
+
+	public static void bubbleSort3(int[] arr, int n) {
+
+	    boolean flag = false;
+	    int length = arr.length;
+
+	    for (int i = 0; i < length; i++) {
+
+	        for (int j = length - 1; j > i; j--) {
+	            if (arr[j - 1] > arr[j]) {
+	                int tmp = arr[j - 1];
+	                arr[j - 1] = arr[j];
+	                arr[j] = tmp;
+
+	                flag = true;
+                }
+            }
+
+            if (!flag) {
+	            break;
+            }
+        }
+    }
 	
 	
 	public static void main(String[] args) {

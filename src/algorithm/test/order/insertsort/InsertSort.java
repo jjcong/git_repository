@@ -46,13 +46,14 @@ public class InsertSort {
             int j = 0;
 
             //如果满足条件，则后移一位
-	        for (j = i - 1;j >= 0 && wait < arr[j]; j--) {
-	            arr[j + 1] = arr[j];
+	        for (j = i - 1; j > 0 && wait < arr[j]; j--) {
+	            arr[j] = arr[j - 1];
             }
-            //防止待排序的数
-            arr[j + 1] = wait;
+            //放置待排序的数
+            arr[j] = wait;
         }
     }
+
 	public static void main(String[] args) {
 		
 		int[] a = {20, 40, 30, 10, 60, 50};

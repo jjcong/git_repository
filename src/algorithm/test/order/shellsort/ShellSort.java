@@ -20,21 +20,23 @@ public class ShellSort {
 		for (int gap = n / 2; gap > 0; gap /= 2) {
 
 			// 共gap个组，对每一组都执行直接插入排序
-			for (int i = 0; i < gap; i++) {
+            for (int i = 0; i < gap; i++) {
 
-				for (int j = i + gap; j < n; j += gap) {
+                for (int j = i + gap; j < n; j += gap) {
 
-					// 如果a[j] < a[j-gap]，则寻找a[j]位置，并将后面数据的位置都后移。
-					if (a[j] < a[j - gap]) {
+                    // 如果a[j] < a[j-gap]，则寻找a[j]位置，并将后面数据的位置都后移。
+                    if (a[j] < a[j - gap]) {
 
-						int tmp = a[j];
-						int k = j - gap;
-						while (k >= 0 && a[k] > tmp) {
-							a[k + gap] = a[k];
-							k -= gap;
-						}
-						a[k + gap] = tmp;
-					}
+                        int wait = a[j];
+                        int k = j - gap;
+
+                        while (k >= 0 && a[k] > wait) {
+                            a[k + gap] = a[k];
+                            k -= gap;
+                        }
+                        a[k + gap] = wait;
+                    }
+
 				}
 			}
 		}
@@ -82,6 +84,7 @@ public class ShellSort {
 			// 共gap个组，对每一组都执行直接插入排序
 			for (int i = 0; i < gap; i++)
 				groupSort(a, n, i, gap);
+
 		}
 	}
 
@@ -94,8 +97,9 @@ public class ShellSort {
 			System.out.printf("%d ", a[i]);
 		System.out.printf("\n");
 
-		shellSort1(a, a.length);
-		// shellSort2(a, a.length);
+
+//		shellSort1(a, a.length);
+		 shellSort2(a, a.length);
 
 		System.out.printf("after  sort:");
 		for (i = 0; i < a.length; i++)
