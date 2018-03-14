@@ -152,7 +152,7 @@ public class QuickSort {
 
         int mid = low + (high - low) / 2;
 
-        //三个判断语句的目的是确保arr[mid]最小
+        //三个判断语句的目的是确保arr[low]最小
         if (arr[low] < arr[mid]) {
             swap(arr, low, mid);
         }
