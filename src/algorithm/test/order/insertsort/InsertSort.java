@@ -30,6 +30,7 @@ public class InsertSort {
 			if (j != i - 1) {
 				//将比a[i]大的数据向后移
 				int temp = a[i];
+
 				for (k = i - 1; k > j; k--) {
 					a[k + 1] = a[k];
 					//将a[i]放到正确位置上
@@ -42,15 +43,16 @@ public class InsertSort {
 
 
 	    for (int i = 1; i < arr.length; i++) {
+
 	        int wait = arr[i];
             int j = 0;
 
             //如果满足条件，则后移一位
-	        for (j = i - 1; j > 0 && wait < arr[j]; j--) {
-	            arr[j] = arr[j - 1];
+	        for (j = i - 1; j >= 0 && wait < arr[j]; j--) {
+	            arr[j + 1] = arr[j];
             }
             //放置待排序的数
-            arr[j] = wait;
+            arr[j + 1] = wait;
         }
     }
 

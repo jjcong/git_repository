@@ -8,20 +8,23 @@ package algorithm.test.order.mergesort;
  */
 public class MergeSort {
 
-	/*
-	 * 将一个数组中的两个相邻有序区间合并成一个
-	 * 
-	 * 参数说明： 
-	 *         a -- 包含两个有序区间的数组 
-	 *         start -- 第1个有序区间的起始地址。
-	 *         mid --  第1个有序区间的结束地址。也是第2个有序区间的起始地址。
-	 *         end -- 第2个有序区间的结束地址。
-	 */
+    /**
+     * 将一个数组中的两个相邻有序区间合并成一个
+     *
+     * @param a       包含两个有序区间的数组
+     * @param start   第1个有序区间的起始地址
+     * @param mid     第1个有序区间的结束地址。也是第2个有序区间的起始地址
+     * @param end     第2个有序区间的结束地址
+     */
 	public static void merge(int[] a, int start, int mid, int end) {
-		int[] tmp = new int[end - start + 1]; // tmp是汇总2个有序区的临时区域
-		int i = start; // 第1个有序区的索引
-		int j = mid + 1; // 第2个有序区的索引
-		int k = 0; // 临时区域的索引
+        // tmp是汇总2个有序区的临时区域
+		int[] tmp = new int[end - start + 1];
+        // 第1个有序区的索引[start, mid]
+		int i = start;
+        // 第2个有序区的索引[mid+1, end]
+		int j = mid + 1;
+        // 临时区域的索引
+		int k = 0;
 
 		while (i <= mid && j <= end) {
 
@@ -110,7 +113,8 @@ public class MergeSort {
 			System.out.printf("%d ", a[i]);
 		System.out.printf("\n");
 
-		mergeSortUp2Down(a, 0, a.length - 1); // 归并排序(从上往下)
+        // 归并排序(从上往下)
+		mergeSortUp2Down(a, 0, a.length - 1);
 		// mergeSortDown2Up(a); // 归并排序(从下往上)
 
 		System.out.printf("After  sort:");

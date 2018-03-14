@@ -20,7 +20,7 @@ public class QuickSort {
         }
         System.out.println();
 
-        quickSort2(a, 0, a.length-1);
+        quickSort3(a, 0, a.length-1);
 
         System.out.println("After sort:");
         for ( int i = 0; i < a.length; i++) {
@@ -71,7 +71,7 @@ public class QuickSort {
 	        return;
         }
 
-        int pivot = partition(arr, low, high);
+        int pivot = partitionEnd(arr, low, high);
 
 	    //递归排序左子数组
 	    quickSort2(arr, low, pivot - 1);
@@ -80,6 +80,14 @@ public class QuickSort {
 
     }
 
+    /**
+     * 分区方法，以首元素为主元
+     *
+     * @param arr
+     * @param low
+     * @param high
+     * @return
+     */
     public static int partition(int[] arr, int low, int high) {
 	    //中心设置
 	    int pivot = arr[low];
@@ -106,45 +114,80 @@ public class QuickSort {
 
 
     /**
+     * 分区方法，以尾元素为主元
+     *
+     * @param arr
+     * @param low
+     * @param high
+     * @return
+     */
+    public static int partitionEnd(int[] arr, int low, int high) {
+        //中心设置
+        int pivot = arr[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+
+        //最后将arr[i+1]与主元交换
+        swap(arr, i + 1, high);
+        return  i + 1;
+
+    }
+
+    /**
      * 快速排序----三数取中法
      *
      * @param arr
      * @param low
      * @param high
      */
-    public static void quickSort3(int[] arr, int low, int high) {
+    public static int quickSort3(int[] arr, int low, int high) {
 
-        if (low < high) {
-            //获取枢纽值，并将其放在当前待处理序列末尾
-            dealPivot(arr, low, high);
-            //枢纽值被放在序列末尾
-            int pivot = high - 1;
-            //左指针
-            int i = low;
-            //右指针
-            int j = high - 1;
-            while (true) {
-                while (arr[++i] < arr[pivot]) {
-                }
-                while (j > low && arr[--j] > arr[pivot]) {
-                }
-                if (i < j) {
-                    swap(arr, i, j);
-                } else {
-                    break;
-                }
-            }
-            if (i < high) {
-                swap(arr, i, high - 1);
-            }
-            quickSort(arr, low, i - 1);
-            quickSort(arr, i + 1, high);
+
+        int mid = low + (high - low) / 2;
+
+        //三个判断语句的目的是确保arr[mid]最小
+        if (arr[low] < arr[mid]) {
+            swap(arr, low, mid);
         }
 
+        if (arr[high] < arr[mid]) {
+            swap(arr, mid, high);
+        }
+
+        if (arr[high] < arr[low]) {
+            swap(arr, low, high);
+        }
+
+        //枢纽值被放在队首
+        int pivot = arr[low];
+        //左指针
+        int i = low;
+        int j = low + 1;
+
+        for (; j <= high; j++) {
+
+            if (arr[j] <= pivot) {
+                i++;
+                if (i != j) {
+                    swap(arr, i, j);
+                }
+            }
+        }
+
+        swap(arr, i, low);
+
+        return i;
     }
 
     /**
-     * 处理枢纽值
+     * 处理枢纽值，取中位数
      *
      * @param arr
      * @param low
@@ -154,19 +197,18 @@ public class QuickSort {
 
         int mid = low + (high - low) / 2;
 
-        if (arr[low] > arr[mid]) {
+        //三个判断语句的目的是确保arr[mid]最小
+        if (arr[low] < arr[mid]) {
             swap(arr, low, mid);
-        }
-
-        if (arr[low] > arr[high]) {
-            swap(arr, low, high);
         }
 
         if (arr[high] < arr[mid]) {
             swap(arr, mid, high);
         }
 
-        swap(arr, high - 1, mid);
+        if (arr[high] < arr[low]) {
+            swap(arr, low, high);
+        }
 
     }
 
@@ -181,7 +223,7 @@ public class QuickSort {
 
         int tmp = arr[a];
         arr[a] = arr[b];
-        arr[b] = arr[a];
+        arr[b] = tmp;
     }
 
 }
