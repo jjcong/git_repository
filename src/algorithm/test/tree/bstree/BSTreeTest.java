@@ -2,7 +2,7 @@ package algorithm.test.tree.bstree;
 
 public class BSTreeTest {
 
-	    private static final int[] ARR = {1, 5, 4, 3, 2, 6};
+	    private static final int[] ARR = {7, 4, 9, 2, 6, 8, 10, 1, 3, 5};
 
 	    public static void main(String[] args) {
 
