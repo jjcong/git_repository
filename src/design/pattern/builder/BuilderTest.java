@@ -1,7 +1,5 @@
 package design.pattern.builder;
 
-import java.util.concurrent.locks.Lock;
-
 /**
  * @author j_cong
  * @date 2017年8月28日

@@ -19,7 +19,7 @@ public class CopyFileByNio {
     public static void main(String[] args) throws IOException {
 
         //1、读数据，通过inputStream获取Channel，抛异常
-        FileInputStream fileInputStream = new FileInputStream("E:\\test\\Person.java");
+        FileInputStream fileInputStream = new FileInputStream("E:\\SingleNumber\\Person.java");
 
         FileChannel infileChannel = fileInputStream.getChannel();
 

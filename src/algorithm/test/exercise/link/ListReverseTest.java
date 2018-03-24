@@ -24,7 +24,9 @@ public class ListReverseTest {
         ListNode newHead = null;
 
         while (head != null) {
+            //保存head之后的链表
             ListNode tmp = head.next;
+            //断开head与之后的链表
             head.next = newHead;
             newHead = head;
             head = tmp;
@@ -80,6 +82,7 @@ public class ListReverseTest {
             cur = head;
             next = head.next;
 
+            //每次循环相当于将前后的数挪到最后面
             for (int j = 0; j < i; j++) {
                 tmp = cur.val;
                 cur.val = next.val;
@@ -114,8 +117,8 @@ public class ListReverseTest {
         ListNode head = first;
 
 //        head = reverseList1(head);
-//        head = reverseList2(head);
-        head = reverseList3(head);
+        head = reverseList2(head);
+//        head = reverseList3(head);
 
 
     }

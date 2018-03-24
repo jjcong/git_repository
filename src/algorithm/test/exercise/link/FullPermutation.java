@@ -33,6 +33,12 @@ public class FullPermutation {
     }
 
 
+    /**
+     * 从字符串数组中每次选取一个元素，作为结果中的第一个元素;然后，对剩余的元素全排列
+     *
+     * @param chars
+     * @param cursor
+     */
     private static void fastPermutation(char[] chars, int cursor) {
 
         int length = chars.length;
@@ -46,9 +52,11 @@ public class FullPermutation {
         } else {
             //循环实现交换和之后的全排列
             for (int i = cursor; i < length ; i++) {
+                //交换前缀,作为结果中的第一个元素，然后对剩余的元素全排列
                 swap(chars, i, cursor);
+                // 递归调用，缩小问题的规模
                 fastPermutation(chars, cursor + 1);
-                //递归之后再交换过来，保证固定前一个数的全排列
+                //递归之后再交换过来，保证固定前一个数的全排列,换回前缀，复原字符数组
                 swap(chars, i , cursor);
             }
         }

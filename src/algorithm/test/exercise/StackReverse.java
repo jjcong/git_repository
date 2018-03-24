@@ -25,9 +25,10 @@ public class StackReverse {
          for (int ele : stack) {
              System.out.print(ele);
          }
+        System.out.println();
 
          for (int i = 0; i < 10; i++) {
-             System.out.println(stack.pop());
+             System.out.print(stack.pop());
          }
 
     }

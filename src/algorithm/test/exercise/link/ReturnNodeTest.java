@@ -1,8 +1,5 @@
 package algorithm.test.exercise.link;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * 返回链表倒数第n节点
  *
@@ -79,6 +76,28 @@ public class ReturnNodeTest {
         return latter;
     }
 
+
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        // write your code here
+        int length = 0;
+        ListNode p = head;
+
+        while (p != null) {
+            length++;
+            p = p.next;
+        }
+
+        ListNode result = head;
+        ListNode tmp = head;
+        for (int i = 0; i < length - n - 1; i++) {
+            result.next = tmp.next;
+            tmp = tmp.next;
+        }
+        result.next = tmp.next.next;
+
+        return result;
+    }
+
     public static void main(String[] args) {
 
         ListNode first = new ListNode(1);
@@ -95,7 +114,8 @@ public class ReturnNodeTest {
 
         ListNode head = first;
 
-        ListNode result = nthToLast2(head, 2);
+//        ListNode result = nthToLast2(head, 2);
+        ListNode result = removeNthFromEnd(head, 2);
 
 
         while (result != null) {
