@@ -1,5 +1,8 @@
 package algorithm.test.exercise.link;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 返回链表倒数第n节点
  *
@@ -77,26 +80,78 @@ public class ReturnNodeTest {
     }
 
 
+    /**
+     * 删除链表中倒数第n个元素
+     *
+     * @param head
+     * @param n
+     * @return
+     */
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         // write your code here
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        ListNode fast = head;
+        ListNode slow = head;
+        ListNode pre = null;
+
+        for (int i = 0; i < n - 1; i++) {
+            fast = fast.next;
+        }
+
+        while (fast.next != null) {
+            fast = fast.next;
+            pre = slow;
+            slow = slow.next;
+        }
+
+        if (slow == head) {
+            head = head.next;
+        } else {
+            pre.next = pre.next.next;
+        }
+
+        return head;
+    }
+
+    /**
+     * 删除链表中倒数第n个元素
+     *
+     * @param head
+     * @param n
+     * @return
+     */
+    public ListNode removeNthFromEnd1(ListNode head, int n) {
+        // write your code here
+        if (head == null || head.next == null) {
+            return null;
+        }
+
         int length = 0;
         ListNode p = head;
+        ListNode q = head;
 
         while (p != null) {
             length++;
             p = p.next;
         }
 
-        ListNode result = head;
-        ListNode tmp = head;
         for (int i = 0; i < length - n - 1; i++) {
-            result.next = tmp.next;
-            tmp = tmp.next;
+            q = q.next;
         }
-        result.next = tmp.next.next;
+        if (q == head) {
+            return head.next;
+        } else {
+            q.next = q.next.next;
+        }
 
-        return result;
+
+        return head;
     }
+
+
 
     public static void main(String[] args) {
 

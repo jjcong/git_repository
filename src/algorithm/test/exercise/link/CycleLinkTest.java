@@ -1,6 +1,5 @@
 package algorithm.test.exercise.link;
 
-import jvm.test.TenuringThresholdTest;
 
 /**
  * 检测链表中是否有环

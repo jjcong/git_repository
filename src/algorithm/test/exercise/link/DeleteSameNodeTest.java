@@ -1,8 +1,6 @@
 package algorithm.test.exercise.link;
 
-import java.util.HashMap;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * 删除链表中的重复值
@@ -108,6 +106,40 @@ public class DeleteSameNodeTest {
         return head;
     }
 
+
+    public static ListNode deleteDuplicates(ListNode head) {
+        // write your code here
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        Map<Integer, Integer> map = new TreeMap<>();
+        ListNode tmp = head;
+        ListNode cur = head;
+        ListNode newHead = new ListNode(-1);
+
+        while (tmp != null) {
+            if (map.containsKey(tmp.val)) {
+                map.put(tmp.val, 2);
+            } else {
+                map.put(tmp.val, 1);
+            }
+
+            tmp = tmp.next;
+        }
+
+        while (cur != null) {
+            if (map.get(cur.val) == 1) {
+                newHead.next = cur;
+                newHead = newHead.next;
+
+            }
+            cur = cur.next;
+        }
+
+        return newHead.next;
+    }
+
     public static void main(String[] args) {
 
         ListNode first = new ListNode(10);
@@ -124,7 +156,8 @@ public class DeleteSameNodeTest {
 
         ListNode head = first;
 
-        ListNode result = deleteSameNode2(head);
+//        ListNode result = deleteSameNode1(head);
+        ListNode result = deleteDuplicates(head);
 
 
         while (result != null) {
