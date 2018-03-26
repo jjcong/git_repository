@@ -58,7 +58,17 @@ public class ShellSort {
 		for (int j = i + gap; j < n; j += gap) {
 
 			// 如果a[j] < a[j-gap]，则寻找a[j]位置，并将后面数据的位置都后移。
-			if (a[j] < a[j - gap]) {
+            //基本思想与直接插入排序相同
+            int wait = a[j];
+            int k = 0;
+
+            for (k = j - gap; k >= 0 && a[k] > wait; k -= gap) {
+                a[k + gap] = a[k];
+            }
+
+            a[k + gap] = wait;
+
+/*			if (a[j] < a[j - gap]) {
 
 				int tmp = a[j];
 				int k = j - gap;
@@ -67,7 +77,7 @@ public class ShellSort {
 					k -= gap;
 				}
 				a[k + gap] = tmp;
-			}
+			}*/
 		}
 	}
 
