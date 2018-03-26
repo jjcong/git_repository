@@ -50,4 +50,33 @@ public class RotateString {
         }
         return str;
     }
+
+    /**
+     * 反转单词How are you! --> you! are How
+     *
+     * @param s
+     * @return
+     */
+    public String reverseWords(String s) {
+        // write your code here
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        String[] words = s.split(" ");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            if (!" ".equals(words[i])) {
+                sb.append(words[i]).append( " ");
+            }
+        }
+
+
+        return sb.toString().trim();
+
+    }
+
+
 }
+
+

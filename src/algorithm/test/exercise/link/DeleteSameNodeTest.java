@@ -107,16 +107,23 @@ public class DeleteSameNodeTest {
     }
 
 
+    /**
+     * 删除重复元素，不保留
+     *
+     * @param head
+     * @return
+     */
     public static ListNode deleteDuplicates(ListNode head) {
         // write your code here
         if (head == null || head.next == null) {
             return head;
         }
 
-        Map<Integer, Integer> map = new TreeMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         ListNode tmp = head;
         ListNode cur = head;
         ListNode newHead = new ListNode(-1);
+        ListNode cur2 = newHead;
 
         while (tmp != null) {
             if (map.containsKey(tmp.val)) {
@@ -130,14 +137,54 @@ public class DeleteSameNodeTest {
 
         while (cur != null) {
             if (map.get(cur.val) == 1) {
-                newHead.next = cur;
-                newHead = newHead.next;
 
+                ListNode tmp1 = new ListNode(cur.val);
+
+                cur2.next = tmp1;
+                cur2 = cur2.next;
             }
             cur = cur.next;
         }
 
         return newHead.next;
+    }
+
+    /**
+     * 删除重复元素，不保留
+     *
+     * @param head
+     * @return
+     */
+    public ListNode deleteDuplicates2(ListNode head) {
+        // write your code here
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode newHead = new ListNode(-1);
+        ListNode cur = newHead;
+        ListNode pre = head;
+
+        while (head != null) {
+            ListNode p = head;
+            int count = 0;
+            while (p != null && p.val == head.val) {
+                count++;
+                p = p.next;
+            }
+
+            if (count == 1) {
+                cur.next = head;
+                head = head.next;
+                cur = cur.next;
+            } else {
+                head = p;
+            }
+        }
+        cur.next = null;
+        return newHead.next;
+
+
     }
 
     public static void main(String[] args) {
@@ -146,7 +193,7 @@ public class DeleteSameNodeTest {
         ListNode second = new ListNode(11);
         ListNode third = new ListNode(11);
         ListNode forth = new ListNode(12);
-        ListNode fifth = new ListNode(26);
+        ListNode fifth = new ListNode(12);
 
         first.next = second;
         second.next = third;
@@ -166,4 +213,6 @@ public class DeleteSameNodeTest {
         }
         System.out.println();
     }
+
+
 }

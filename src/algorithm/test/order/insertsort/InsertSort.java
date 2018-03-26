@@ -51,7 +51,7 @@ public class InsertSort {
 	        for (j = i - 1; j >= 0 && wait < arr[j]; j--) {
 	            arr[j + 1] = arr[j];
             }
-            //放置待排序的数
+            //放置待排序的数=
             arr[j + 1] = wait;
         }
     }
