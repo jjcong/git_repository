@@ -13,9 +13,9 @@ public enum SingletonEnum {
 	INSTANCE;  
 	
 	//定义构造方法，修饰符必须为private
-	private SingletonEnum() {};
+	private SingletonEnum() {}
 	
-	public void method() {};
+	public void method() {}
 	
 	public static SingletonEnum getInstance() {
 		return INSTANCE;

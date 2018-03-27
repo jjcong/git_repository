@@ -68,7 +68,7 @@ public class TransposeMatrix {
         int row = arr.length;
         int col = arr[0].length;
 
-        for (int i = 0; i< col; i++) {
+        for (int i = 0; i < col; i++) {
             for (int j = col - 1; j >= col / 2; j--) {
                 int tmp = arr[i][j];
                 arr[i][j] = arr[i][col - j - 1];
