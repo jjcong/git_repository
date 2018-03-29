@@ -14,9 +14,15 @@ public class ScannerTest {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+
+		String  str = null;
+
+		if (sc.hasNextLine()) {
+             str = sc.nextLine();
+        }
 		
-		int y = sc.nextInt();
-		System.out.println("x=" + y);
+
+		System.out.println("x=" + str);
 	}
 	
 	
