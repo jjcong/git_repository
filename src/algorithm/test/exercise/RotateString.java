@@ -76,6 +76,25 @@ public class RotateString {
 
     }
 
+    public int reverseInteger(int number) {
+        // write your code here
+        char[] num = String.valueOf(number).toCharArray();
+
+        int start = 0;
+        int end = num.length;
+
+        while (start < end) {
+
+            char tmp = num[start];
+            num[start] = num[end];
+            num[end] = tmp;
+
+            start++;
+            end--;
+        }
+
+        return Integer.valueOf(String.valueOf(num));
+    }
 
 }
 

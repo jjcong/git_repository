@@ -14,15 +14,19 @@ public class ScannerTest {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		//必须清楚当前行的标志
+		sc.nextLine();
 
-		String  str = null;
+		StringBuilder sb = new StringBuilder();
 
-		if (sc.hasNextLine()) {
-             str = sc.nextLine();
+		for  (int i = 0; i < n; i++) {
+            if (sc.hasNextLine()) {
+                sb.append(sc.nextLine()).append(" ");
+            }
         }
-		
 
-		System.out.println("x=" + str);
+		System.out.println(sb.toString());
 	}
 	
 	

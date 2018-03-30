@@ -40,7 +40,7 @@ public class Handler implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Main: Staring at: " + new Date());
+		System.out.println("ScannerReverseMatrix: Staring at: " + new Date());
 //		ExecutorService exec = Executors.newCachedThreadPool();
 //		ExecutorService exec = Executors.newFixedThreadPool(5);
 //		ExecutorService exec = Executors.newSingleThreadExecutor();
@@ -50,6 +50,6 @@ public class Handler implements Runnable {
 			exec.execute(new Handler(String.valueOf(i)));
 		}
 		exec.shutdown();
-		System.out.println("Main: Finished all threads at " + new Date());
+		System.out.println("ScannerReverseMatrix: Finished all threads at " + new Date());
 	}
 }
