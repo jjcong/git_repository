@@ -45,13 +45,19 @@ public class InsertSort {
 	    for (int i = 1; i < arr.length; i++) {
 
 	        int wait = arr[i];
-            int j = 0;
+            int j = i - 1;
+
+            while (j >= 0 && wait < arr[j]) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
 
             //如果满足条件，则后移一位
-	        for (j = i - 1; j >= 0 && wait < arr[j]; j--) {
-	            arr[j + 1] = arr[j];
-            }
-            //放置待排序的数=
+//	        for (j = i - 1; j >= 0 && wait < arr[j]; j--) {
+//	            arr[j + 1] = arr[j];
+//            }
+            //放置待排序的数
             arr[j + 1] = wait;
         }
     }

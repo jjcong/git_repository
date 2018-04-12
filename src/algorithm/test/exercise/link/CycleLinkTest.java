@@ -9,6 +9,28 @@ package algorithm.test.exercise.link;
  * @version V1.0
  */
 public class CycleLinkTest {
+
+    public static void main(String[] args) {
+
+        ListNode first = new ListNode(1);
+        ListNode second = new ListNode(2);
+        ListNode third = new ListNode(3);
+        ListNode forth = new ListNode(4);
+        ListNode fifth = new ListNode(5);
+        ListNode sixth = new ListNode(6);
+
+        first.next = second;
+        second.next = third;
+        third.next = forth;
+        forth.next = fifth;
+        fifth.next = sixth;
+        sixth.next = third;
+
+        ListNode head = first;
+        hasCycle1(head);
+
+        System.out.println(hasCycle1(head));
+    }
     /**
      * 维护两个指针，一个步幅为1，另一个步幅为2，如果相遇说明有环
      *
@@ -33,7 +55,7 @@ public class CycleLinkTest {
         return false;
     }
 
-    private boolean hasCycle1(ListNode head) {
+    private static  boolean hasCycle1(ListNode head) {
 
         ListNode cur = head;
 

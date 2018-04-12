@@ -72,11 +72,13 @@ public class BSTree<T extends Comparable<T>> {
      * 后序遍历二叉树
      */
     private void postOrder(BSTNode<T> tree) {
-        if (tree != null) {
+
+        if (tree == null) {
+            return;
+        }
             postOrder(tree.left);
             postOrder(tree.right);
             System.out.println(tree.key + " ");
-        }
     }
 
     public void postOrder() {

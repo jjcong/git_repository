@@ -183,8 +183,39 @@ public class DeleteSameNodeTest {
         }
         cur.next = null;
         return newHead.next;
+    }
 
+    /**
+     * 删除重复元素，不保留
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode deleteDuplicates3(ListNode head) {
 
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode cur = head;
+        ListNode newHead = dummy;
+
+        while (cur != null && cur.next != null) {
+            if (cur.val == cur.next.val) {
+                int val = cur.val;
+
+                //删除重复的节点
+                while (cur != null && cur.val == val) {
+                    cur = cur.next;
+                }
+                newHead.next = cur;
+            } else {
+                newHead = cur;
+                cur = cur.next;
+            }
+        }
+        return dummy.next;
     }
 
     public static void main(String[] args) {
@@ -193,7 +224,7 @@ public class DeleteSameNodeTest {
         ListNode second = new ListNode(11);
         ListNode third = new ListNode(11);
         ListNode forth = new ListNode(12);
-        ListNode fifth = new ListNode(12);
+        ListNode fifth = new ListNode(13);
 
         first.next = second;
         second.next = third;
@@ -201,10 +232,12 @@ public class DeleteSameNodeTest {
         forth.next = fifth;
         fifth.next = null;
 
+        String strs[] = new String[]{"a", "b", "c"};
+
         ListNode head = first;
 
 //        ListNode result = deleteSameNode1(head);
-        ListNode result = deleteDuplicates(head);
+        ListNode result = deleteDuplicates3(head);
 
 
         while (result != null) {

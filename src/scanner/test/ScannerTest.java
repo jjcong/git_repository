@@ -15,7 +15,7 @@ public class ScannerTest {
 		
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		//必须清楚当前行的标志
+		//必须清除当前行的标志
 		sc.nextLine();
 
 		StringBuilder sb = new StringBuilder();

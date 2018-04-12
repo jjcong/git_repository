@@ -1,6 +1,8 @@
 package algorithm.test.exercise.string;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 将给定字符串中的空格替换为%23
@@ -13,9 +15,11 @@ public class ReplaceBlankTest {
 
     public static void main(String[] args) {
 
-        String str = "We are happy!";
+        Stack<Integer> stack = new Stack<>();
 
-        System.out.println(replaceBlank1(str));
+        StringBuffer str = new StringBuffer("Wearehappy! ");
+
+        System.out.println(replaceSpace3(str));
 
     }
 
@@ -93,5 +97,26 @@ public class ReplaceBlankTest {
 
         //将最后的"%20"去掉
         return result.substring(0, result.length() - 3);
+    }
+
+    public static String replaceSpace3(StringBuffer str) {
+
+        if (str == null || str.length() == 0) {
+            return str.toString();
+        }
+
+        String strs = str.toString();
+        String[] words = str.toString().split(" ");
+
+        StringBuffer sb = new StringBuffer();
+
+        for (String word : words) {
+            sb.append(word).append("%20");
+        }
+
+        String result = sb.toString();
+
+        return result.substring(0, result.length() - 3);
+
     }
 }

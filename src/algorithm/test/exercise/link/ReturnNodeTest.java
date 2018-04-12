@@ -107,6 +107,7 @@ public class ReturnNodeTest {
             slow = slow.next;
         }
 
+        //如果slow为头结点，直接返回下一个节点
         if (slow == head) {
             head = head.next;
         } else {

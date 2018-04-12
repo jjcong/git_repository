@@ -1,6 +1,7 @@
 package scanner.test;
 
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 第一行为两个整数
@@ -35,13 +36,15 @@ public class ScannerInputTest {
         }
 
         for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");;
+            System.out.print(arr[i] + " ");
+            ;
         }
 
         System.out.println();
 
         for (int i = 0; i < m; i++) {
-            System.out.print(brr[i] + " ");;
+            System.out.print(brr[i] + " ");
+            ;
         }
     }
 }

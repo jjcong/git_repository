@@ -1,6 +1,5 @@
 package algorithm.test.order.quicksort;
 
-import com.sun.org.apache.bcel.internal.generic.SWAP;
 
 /**
  * @author j_cong

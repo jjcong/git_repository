@@ -1,4 +1,7 @@
 package algorithm.test.exercise;
+
+import java.math.BigInteger;
+
 /**
  * 递归与非递归模式的斐波那契数列实现方式
  *
@@ -11,8 +14,8 @@ public class FibonacciTest {
 
     public static void main(String[] args) {
 
-        System.out.println(fibonacci1(6));
-        System.out.println(fibonacci2(6));
+//        System.out.println(fibonacci1(100));
+        System.out.println(fibonacci2(60));
     }
 
     /**
@@ -21,7 +24,8 @@ public class FibonacciTest {
      * @param n  第n个数列
      * @return   第n个数列表示的具体值
      */
-    private static int fibonacci1(int n) {
+    private static long fibonacci1(long n) {
+
         if (n == 1) {
             return 1;
         }
@@ -38,7 +42,7 @@ public class FibonacciTest {
      * @param n  第n个数列
      * @return   第n个数列表示的具体值
      */
-    private static int fibonacci2(int n) {
+    private static long fibonacci2(long n) {
         if (n == 1) {
             return 1;
         }
@@ -46,9 +50,9 @@ public class FibonacciTest {
             return 1;
         }
 
-        int former = 1;
-        int latter = 1;
-        int result = 0;
+        long former = 1;
+        long latter = 1;
+        long result = 0;
 
         for (int i = 3; i <= n; i++) {
             result = former + latter;
