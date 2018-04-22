@@ -11,7 +11,8 @@ public class QuickSort {
 
 
     public static void main(String[] args) {
-        int a[] = {30, 40, 60, 10, 20, 50};
+//        int a[] = {30, 40, 60, 10, 20, 50};
+        int a[] = {3, 8, 7, 1, 2, 5, 6, 4};
 
         System.out.println("Before sort:");
         for ( int i = 0; i < a.length; i++) {
@@ -19,7 +20,7 @@ public class QuickSort {
         }
         System.out.println();
 
-        quickSort3(a, 0, a.length-1);
+        quickSort2(a, 0, a.length-1);
 
         System.out.println("After sort:");
         for ( int i = 0; i < a.length; i++) {
@@ -70,7 +71,7 @@ public class QuickSort {
 	        return;
         }
 
-        int pivot = partitionEnd(arr, low, high);
+        int pivot = partition(arr, low, high);
 
 	    //递归排序左子数组
 	    quickSort2(arr, low, pivot - 1);

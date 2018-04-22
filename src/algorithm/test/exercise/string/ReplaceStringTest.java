@@ -13,8 +13,10 @@ public class ReplaceStringTest {
 
         String str1 = "abcd";
         String str2 = "bcad";
+        String str = "     ";
 
         System.out.println( replaceString1(str1, str2));
+        System.out.println( ReverseSentence(str));
 
     }
 
@@ -92,6 +94,23 @@ public class ReplaceStringTest {
         }
 
         return true;
+
+    }
+
+    public static String ReverseSentence(String str) {
+        if (str == null || str.trim().length() == 0) {
+            return str;
+        }
+        String[] words = str.split(" ");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            sb.append(words[i]).append(" ");
+        }
+
+        String res = sb.toString().trim();
+
+        return res;
 
     }
 

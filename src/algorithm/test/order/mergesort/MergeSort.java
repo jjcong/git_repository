@@ -44,8 +44,9 @@ public class MergeSort {
             tmp[k++] = a[j++];
 
         // 将排序后的元素，全部都整合到数组a中。
-        for (i = 0; i < k; i++)
-
+        for (i = 0; i < k; i++) {
+            a[start + i] = tmp[i];
+        }
         tmp = null;
     }
 

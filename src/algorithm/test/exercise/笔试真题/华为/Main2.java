@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main2 {
     public static void main(String[] args) {
+
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] a = new int[n];
@@ -12,6 +13,7 @@ public class Main2 {
         }
 
         System.out.println(jump(a));
+
     }
 
     public static int jump(int[] A) {

@@ -19,7 +19,7 @@ public class FibonacciTest {
     }
 
     /**
-     * 递归方式的方法
+     * 递归方式的方法(1, 1, 2)
      *
      * @param n  第n个数列
      * @return   第n个数列表示的具体值
@@ -37,7 +37,7 @@ public class FibonacciTest {
     }
 
     /**
-     * 递归方式的方法
+     * 递归方式的方法(1, 1, 2)
      *
      * @param n  第n个数列
      * @return   第n个数列表示的具体值

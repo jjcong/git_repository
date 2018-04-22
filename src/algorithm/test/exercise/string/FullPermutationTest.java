@@ -1,8 +1,6 @@
 package algorithm.test.exercise.string;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * 字符串的全排列
@@ -17,6 +15,7 @@ public class FullPermutationTest {
 
         String str = "ABC";
         System.out.println(str.length());
+
 
         fullPermutation(str.toCharArray(), 0, str.length() - 1);
     }
@@ -54,5 +53,6 @@ public class FullPermutationTest {
         source[start] = source[end];
         source[end] = tmp;
     }
+
 
 }

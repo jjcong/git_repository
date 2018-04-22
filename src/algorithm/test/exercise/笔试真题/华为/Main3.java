@@ -2,6 +2,13 @@ package algorithm.test.exercise.笔试真题.华为;
 
 import java.util.Scanner;
 
+/**
+ * 字符串相乘
+ *
+ * @author j_cong
+ * @version V1.0
+ * @date 2018/04/21
+ */
 public class Main3 {
 
     public static void main(String[] args) {
@@ -39,9 +46,9 @@ public class Main3 {
         //将数组转换为字符串，如果第一位是0，去掉
         for (int i = 0; i < n; i++) {
             //找出第一个非0的数字
-            if (!firstNonzero && num[i] == 0)
+            if (!firstNonzero && num[i] == 0) {
                 continue;
-            else {
+            } else {
                 result += num[i];
                 firstNonzero = true;
             }

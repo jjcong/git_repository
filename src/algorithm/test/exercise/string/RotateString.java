@@ -1,4 +1,4 @@
-package algorithm.test.exercise;
+package algorithm.test.exercise.string;
 
 /**
  * *问题描述：
