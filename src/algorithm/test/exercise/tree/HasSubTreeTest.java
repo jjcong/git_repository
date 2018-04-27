@@ -8,7 +8,7 @@ package algorithm.test.exercise.tree;
  */
 public class HasSubTreeTest {
 
-    public boolean hasSubtree(TreeNode root1,TreeNode root2) {
+    public boolean hasSubtree(TreeNode root1, TreeNode root2) {
 
         boolean result = false;
 

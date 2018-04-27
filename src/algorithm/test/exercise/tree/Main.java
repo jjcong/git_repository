@@ -1,44 +1,58 @@
 package algorithm.test.exercise.tree;
 
-import java.util.Scanner;
-
+import java.util.LinkedList;
+import java.util.Queue;
+/**
+ * 二叉树的序列化和反序列化
+ * 
+ * @author  j_cong
+ * @date    2018/04/25
+ * @version V1.0
+ */
 public class Main {
 
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        int a = 0;
-        int b = 0;
-        Scanner in = new Scanner(System.in);
-        String aString = in.nextLine();
-        String[] cs = aString.split(" ");
 
-        int count = getPair(Integer.valueOf(cs[0]), Integer.valueOf(cs[1]));
-        System.out.println(count);
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        Main main = new Main();
+        main.Serialize(root);
+
     }
 
-    private static int getPair(int a, int b) {
-        // TODO Auto-generated method stub
-        int count = 0;
-        for (int i = 1; i <= a; i++) {
-            int temp = i;
-            int form = 0;
-            while (temp <= a) {
-                int c = temp - (b + form);
-                if (c > 0) {
-                    count += c;
-                }
-                //count  += ;
-                form = temp;
-                temp = temp + i;
-            }
-            if (temp > a) {
-                int c = a - (b + form) + 1;
-                if (c > 0) {
-                    count += c;
-                }
-            }
+
+    String Serialize(TreeNode root) {
+        if (root == null) {
+            return "$,";
         }
-        return count;
+        String res = root.val + ",";
+        res += Serialize(root.left);
+        res += Serialize(root.right);
+        return res;
+    }
+    TreeNode Deserialize(String str) {
+
+        String[] values = str.split(",");
+        Queue<String> queue = new LinkedList<>();
+
+        for (int i = 0; i < values.length; i++) {
+            queue.offer(values[i]);
+        }
+
+        return reconPreOrder(queue);
+    }
+
+    public TreeNode reconPreOrder(Queue<String> queue) {
+        String value = queue.poll();
+        if (",".equals(value)) {
+            return null;
+        }
+        TreeNode head = new TreeNode(Integer.valueOf(value));
+        head.left = reconPreOrder(queue);
+        head.right = reconPreOrder(queue);
+
+        return head;
     }
 
 
