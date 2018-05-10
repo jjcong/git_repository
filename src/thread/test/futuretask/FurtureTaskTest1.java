@@ -17,7 +17,7 @@ public class FurtureTaskTest1 {
 
         System.out.println("main thread begin at: " + System.nanoTime() );
         MyTask task1 = new MyTask("1");
-        FutureTask<Integer> result1 = new FutureTask<Integer>(task1);
+        FutureTask<Integer> result1 = new FutureTask<>(task1);
         Thread thread1 = new Thread(result1);
         thread1.start();
 

@@ -13,7 +13,7 @@ public class FullPermutationTest {
 
     public static void main(String[] args) {
 
-        String str = "ABC";
+        String str = "AABC";
         System.out.println(str.length());
 
 
@@ -36,6 +36,10 @@ public class FullPermutationTest {
         } else {
             for (int j = start; j <= end; j++) {
 
+                if (j != start && source[j] == source[start]) {
+                    continue;
+                }
+
                 swap(source, j, start);
 
                 fullPermutation(source, start + 1, end);
@@ -53,6 +57,38 @@ public class FullPermutationTest {
         source[start] = source[end];
         source[end] = tmp;
     }
+
+
+    public ArrayList<String> Permutation(String str) {
+
+        ArrayList<String> res = new ArrayList<>();
+        if (str == null || str.length() == 0) {
+            return res;
+        }
+
+        Permutation(str.toCharArray(), 0, res);
+        Collections.sort(res);
+
+        return res;
+    }
+
+    public ArrayList<String> Permutation(char[] cs, int start, List<String> list) {
+        ArrayList<String> res = new ArrayList();
+        if (start == cs.length - 1) {
+            String val = String.valueOf(cs);
+            if (!list.contains(val)) {
+                list.add(val);
+            }
+        } else {
+            for (int j = start; j < cs.length; j++) {
+                swap(cs, start, j);
+                Permutation(cs, start + 1, list);
+                swap(cs, start, j);
+            }
+        }
+        return res;
+    }
+
 
 
 }

@@ -1,5 +1,11 @@
 package algorithm.test.exercise;
-
+/**
+ * 由字母和数字生成四位不重复的UUID
+ * 
+ * @author  j_cong
+ * @date    2018/04/27
+ * @version V1.0
+ */
 import java.util.*;
 
 /**

@@ -1,5 +1,7 @@
 package thread.test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
@@ -30,12 +32,14 @@ public class CompletionTest  {
 		for (int i = 0; i < 10; i++) {
 			completionService.submit(new HandlerFuture<Integer>(i));
 		}
-		
+		executor.shutdown();
+
 		//一个一个等待返回结果
 		for (int i = 0; i < 10; i++) {
 			System.out.println("返回结果：" + completionService.take().get());
-		} 
-		
+
+		}
+
 		System.out.println("main Thread end!");
 	}
 	

@@ -53,7 +53,7 @@ class MyTask2 implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         System.out.println("task" + name + "开始进行计算");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         int sum = new Random().nextInt(300);
         int result = 0;
         for (int i = 0; i < sum; i ++) {
