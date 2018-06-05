@@ -1,3 +1,4 @@
+package algorithm.test.exercise;
 import java.util.*;
 
 public class Main {

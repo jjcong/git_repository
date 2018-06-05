@@ -12,7 +12,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class CountDownLatchTest {
 
-    private static CountDownLatch countDownLatch = new CountDownLatch(5);
+    private static final CountDownLatch countDownLatch = new CountDownLatch(5);
 
     /*
     Boss线程，等待员工到达开会
@@ -48,7 +48,6 @@ public class CountDownLatchTest {
 
 
     public static void main(String[] args) {
-
         new BossThread().start();
 
         for (int i = 0; i < countDownLatch.getCount(); i++) {

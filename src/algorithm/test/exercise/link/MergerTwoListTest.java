@@ -84,6 +84,61 @@ public class MergerTwoListTest {
 
         return head;
     }
+
+    public static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+
+        ListNode head = l1.val < l2.val ? l1 : l2;
+        ListNode cur1 = head == l1 ? l1 : l2;
+        ListNode cur2 = head == l1 ? l2 : l1;
+        ListNode pre = null;
+        ListNode next = null;
+        while (cur1 != null && cur2 != null) {
+            if (cur1.val <= cur2.val) {
+                pre = cur1;
+                cur1 = cur1.next;
+
+            } else {
+                next = l2.next;
+                pre.next = cur2;
+                cur2.next = cur1;
+                pre = cur2;
+                cur2 = next;
+            }
+        }
+        pre.next = cur1 == null ? cur2 : cur1;
+
+        return head;
+    }
+
+    public static ListNode mergeTwoLists3(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                cur.next = l1;
+                l1 = l1.next;
+            } else {
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            cur = cur.next;
+        }
+        cur.next = l1 == null ? l2 : l1;
+
+        return dummy.next;
+    }
     /**
      * node1: 1->3->5->7;
      * node2: 2->4->6->8->9->10->11;
@@ -115,7 +170,7 @@ public class MergerTwoListTest {
         node10.next = node11;
         node11.next = null;
 
-        ListNode mergeNode = mergeTwoLists1(node1,node2);
+        ListNode mergeNode = mergeTwoLists2(node1,node2);
 
         while(mergeNode != null) {
             System.out.print(mergeNode.val + "——>");  // 打印合并链表

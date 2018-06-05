@@ -7,10 +7,8 @@ import java.util.Map;
 public class tesy {
 
     public static void main(String[] args) {
-        String str = "AA";
 
         tesy tesy = new tesy();
-        tesy.Permutation(str);
 
     }
 

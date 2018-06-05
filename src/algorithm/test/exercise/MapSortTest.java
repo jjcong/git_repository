@@ -1,4 +1,4 @@
-package algorithm.test.exercise.笔试真题;
+package algorithm.test.exercise;
 
 import java.util.*;
 

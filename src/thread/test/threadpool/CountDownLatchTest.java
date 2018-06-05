@@ -1,6 +1,4 @@
 package thread.test.threadpool;
-
-
 import java.util.Arrays;
 import java.util.concurrent.*;
 

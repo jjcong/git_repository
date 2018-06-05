@@ -1,6 +1,7 @@
 package algorithm.test.exercise.array;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -20,7 +21,6 @@ public class M2N {
 
         int result = count(m, n);
         System.out.println(result);
-
     }
 
     /**
@@ -44,7 +44,7 @@ public class M2N {
         int count = 0;
         while (m != 0) {
             count++;
-            m &= (m -1);
+            m &= m -1;
         }
         return count;
     }
