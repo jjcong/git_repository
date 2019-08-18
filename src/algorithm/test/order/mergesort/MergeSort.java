@@ -1,6 +1,5 @@
 package algorithm.test.order.mergesort;
 
-import java.math.BigInteger;
 
 /**
  * @author j_cong
@@ -36,6 +35,8 @@ public class MergeSort {
             else
                 tmp[k++] = a[j++];
         }
+
+//        tmp[k++] = i <= mid ? a[i++] : a[j++];
 
         while (i <= mid)
             tmp[k++] = a[i++];

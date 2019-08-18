@@ -1,6 +1,8 @@
 package algorithm.test.exercise.array;
 
 
+import java.util.Arrays;
+
 /**
  * 统计key在有序数组中出现的次数
  *
@@ -14,6 +16,7 @@ public class Count {
 
         Count obj = new Count();
         int[] arr = {1, 2, 3, 3, 3, 3};
+
         System.out.println(obj.getNumberOfK(arr, 2));
     }
 

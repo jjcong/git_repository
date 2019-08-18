@@ -15,11 +15,11 @@ public class IsPopOrderTest {
         int[] arr = {1, 2, 3, 4, 5};
         int[] brr = {4, 3, 5, 1, 2};
 
-        System.out.println(IsPopOrder(arr, brr));
+        System.out.println(isPopOrder(arr, brr));
 
     }
 
-    public static boolean IsPopOrder(int [] pushA,int [] popA) {
+    public static boolean isPopOrder(int [] pushA,int [] popA) {
         if (pushA.length == 0) {
             return false;
         }

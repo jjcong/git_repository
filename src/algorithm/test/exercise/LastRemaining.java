@@ -14,10 +14,10 @@ public class LastRemaining {
 
     public static void main(String[] args) {
         LastRemaining lr = new LastRemaining();
-        lr.LastRemaining_Solution(5, 3);
+        lr.lastRemainingSolution(5, 3);
     }
 
-    public int LastRemaining_Solution(int n, int m) {
+    public int lastRemainingSolution(int n, int m) {
         if (n < 1 || m < 1) {
             return -1;
         }

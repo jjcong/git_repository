@@ -1,7 +1,9 @@
 package algorithm.test.exercise.array;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,6 +20,7 @@ public class M2N {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();
         int n = sc.nextInt();
+        List<Integer> list = new ArrayList<>();
 
         int result = count(m, n);
         System.out.println(result);

@@ -171,4 +171,35 @@ public class IsNumericTest {
 
         return  numSeen && numAfterE;
     }
+
+    public static int strToInt(String str) {
+        str = str.trim();
+        if (str == null || str.length() == 0) {
+            return  0;
+        }
+        int pos = 0;
+        int isNegtive = 1;
+        if (str.charAt(pos) == '+') {
+            pos++;
+        }
+        if (str.charAt(pos) == '-') {
+            isNegtive = -1;
+            pos++;
+        }
+        int res = 0;
+
+        for (int i = pos; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c < '0' || c > '9') {
+                break;
+            }
+            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10
+                && c > '7')) {
+                return isNegtive == -1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            }
+            res = res * 10 + c - '0';
+        }
+
+        return  res * isNegtive;
+    }
 }

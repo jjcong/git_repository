@@ -3,7 +3,7 @@ package design.pattern.template;
 /**
  * @author j_cong
  * @date 2017年8月29日
- * @describe 模板方法模式：抽象类
+ * @describe 模板方法模式：抽象类,父类定义了方法执行的骨架，具体方法由子类去实现
  * @version V1.0.0
  */
 public abstract class BaseCalculator {

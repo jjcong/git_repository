@@ -22,7 +22,7 @@ public class InnerClassSingleton {
 	}
 	
 	//静态工厂方法，创建实例
-	public static InnerClassSingleton getInstance() {
+	public  InnerClassSingleton getInstance() {
 		
 		return SingletonFactory.instance;
 	}

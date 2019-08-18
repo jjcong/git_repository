@@ -25,6 +25,4 @@ public class DCLSingleton {
 		}
 		return instance;
 	}
-	
-	
 }

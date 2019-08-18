@@ -62,6 +62,18 @@ public class InsertSort {
         }
     }
 
+    public static void insertSort3 (int[] arr, int n) {
+
+
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {
+                int tmp = arr[j - 1];
+                arr[j - 1] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+    }
+
 	public static void main(String[] args) {
 		
 		int[] a = {20, 40, 30, 10, 60, 50};
@@ -72,7 +84,7 @@ public class InsertSort {
 		}
 		System.out.println();
 		
-		insertSort2(a, a.length);
+		insertSort3(a, a.length);
 		
 		System.out.println("After sort:");
 		for ( int i = 0; i < a.length; i++) {

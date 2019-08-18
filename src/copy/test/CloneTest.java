@@ -9,11 +9,11 @@ package copy.test;
 public class CloneTest {
 
 	public static void main(String[] args) throws CloneNotSupportedException {
-		
+
 		//正常拷贝
 		Student stu1 = new Student(1, "Jack", 24);
 		Student stu2 = stu1;
-		
+
 		//浅拷贝
 		Student stu3 = new Student(1, "Alice", 22);
 		Student stu4 = (Student) stu1.clone();

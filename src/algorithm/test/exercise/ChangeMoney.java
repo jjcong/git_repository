@@ -1,6 +1,5 @@
 package algorithm.test.exercise;
 
-
 /**
  * 数组记录面值，每种货币可用多次，给出总钱数，求换钱的总数
  *
@@ -11,7 +10,6 @@ package algorithm.test.exercise;
 public class ChangeMoney {
 
     public static void main(String[] args) {
-
         ChangeMoney cm = new ChangeMoney();
         int[] arr = {1, 2, 4};
         int result = cm.changeMoney2(arr, 4);

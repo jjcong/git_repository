@@ -9,7 +9,7 @@ package design.pattern.adapter.interfaceadapter;
 public class SourceSub1 extends BaseWrapper {
 	@Override
 
-    public void method1() {
+    public void method2() {
 		System.out.println("The sourceable interface's first Sub1!");
 	}
 

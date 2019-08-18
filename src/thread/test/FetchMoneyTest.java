@@ -50,6 +50,7 @@ class Bank {
 		 
 		 this.bank = bank;
 	 }
+	 @Override
 	 public void run() {
 		 System.out.println(bank.getMonery(800));
 	 }

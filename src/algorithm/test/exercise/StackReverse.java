@@ -1,6 +1,7 @@
 package algorithm.test.exercise;
 
 import java.lang.reflect.WildcardType;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -14,7 +15,6 @@ import java.util.Stack;
 public class StackReverse {
 
     public static void main(String[] args) {
-
 
         Stack<Integer> stack = new Stack<>();
 

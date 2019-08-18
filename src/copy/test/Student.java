@@ -11,6 +11,7 @@ public class Student implements Cloneable {
 	private int stuId;
 	private int stuAge;
 	private String stuName;
+    private Teacher teacher;
 	
 	public Student (int stuId, String stuName, int stuAge) {
 		super();
@@ -47,6 +48,12 @@ public class Student implements Cloneable {
 	public void setStuName(String stuName) {
 		this.stuName = stuName;
 	}
-	
-	
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 }

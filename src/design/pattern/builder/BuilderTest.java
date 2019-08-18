@@ -1,5 +1,7 @@
 package design.pattern.builder;
 
+import java.util.Vector;
+
 /**
  * @author j_cong
  * @date 2017年8月28日

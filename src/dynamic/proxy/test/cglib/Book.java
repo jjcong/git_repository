@@ -8,7 +8,7 @@ package dynamic.proxy.test.cglib;
  */
 public class Book {
 
-    public void addBook() {
+    void addBook() {
         System.out.println("增加图书的普通方法。。。。");
     }
 }

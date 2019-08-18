@@ -1,4 +1,7 @@
 package dynamic.proxy.test.jdk;
+
+import java.util.ArrayList;
+
 /**
  * 动态代理测试类
  *
@@ -9,6 +12,8 @@ package dynamic.proxy.test.jdk;
 public class ProxyTest {
 
     public static void main(String[] args) {
+
+
 
         HelloServiceProxy proxy = new HelloServiceProxy();
 

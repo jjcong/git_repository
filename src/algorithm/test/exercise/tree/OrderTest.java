@@ -1,9 +1,11 @@
 package algorithm.test.exercise.tree;
 
+import algorithm.test.exercise.link.ListNode;
+
 import java.util.*;
 
 /**
- * 遍历树的前序、中序、后序
+ * 递归，非递归方式遍历树的前序、中序、后序
  *
  * @author  j_cong
  * @date    2018/03/30
@@ -70,9 +72,12 @@ public class OrderTest {
         TreeNode cur = root;
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
+        if(cur != null) {
+            stack.push(cur);
+        }
 
         //栈不为空时，或者cur不为空时循环
-        while (cur != null || !stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             //当前节点不为空。访问并压入栈中。并将当前节点赋值为左儿子
             //当前节点为空：
             //  1、当p指向的左儿子时，此时栈顶元素必然是它的父节点
@@ -120,7 +125,104 @@ public class OrderTest {
     }
 
     /**
-     * 层次遍历---非递归方式
+     * 后序非递归方式，利用两个栈 popStack 和 pushStack
+     * 思路：首先将根节点放入popStack中，依次从popStack中取元素放入pushStack中，
+     *       每次取完后放入取出元素的左节点和右节点，最后pushStack顺序取出即为后序遍历结果
+     * @param root
+     * @return
+     */
+    public static List<Integer> postOrderTraversal(TreeNode root) {
+
+        //当前节点
+        TreeNode cur = root;
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> popStack = new Stack<>();
+        Stack<TreeNode> pushStack = new Stack<>();
+
+        if (cur != null) {
+            popStack.push(root);
+        }
+        //栈不为空时
+        while (!popStack.isEmpty()) {
+
+            //取出栈顶元素，放入栈顶元素的左右节点
+            cur = popStack.pop();
+            pushStack.push(cur);
+            if (cur.left != null) {
+                popStack.push(cur.left);
+            }
+            if (cur.right != null) {
+                popStack.push(cur.right);
+            }
+        }
+
+
+        //遍历取出即为最终结果
+        while (!pushStack.isEmpty()) {
+            result.add(pushStack.pop().val);
+        }
+        return result;
+    }
+
+
+    /**
+     * 后序非递归方式，利用两一个个栈 popStack
+     * 思路：首先将根节点放入popStack中，依次从popStack中取元素放入pushStack中，
+     *       每次取完后放入取出元素的左节点和右节点，最后pushStack顺序取出即为后序遍历结果
+     * @param root
+     * @return
+     */
+    public static List<Integer> postOrderTraversal1(TreeNode root) {
+
+        //当前节点
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> popStack = new Stack<>();
+        TreeNode cur = null;
+
+        if (root != null) {
+            popStack.push(root);
+        }
+        //栈不为空时
+        while (!popStack.isEmpty()) {
+            cur = popStack.peek();
+            if (cur.left != null && root != cur.left && root != cur.right) {
+                popStack.push(cur.left);
+            } else if (cur.right != null && root != cur.right) {
+                popStack.push(cur.right);
+            } else {
+                result.add(popStack.pop().val);
+                root = cur;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     *
+     * 后序遍历（推荐使用）
+     * @param root
+     * @return
+     */
+    public ArrayList<Integer> postorderTraversal(TreeNode root) {
+        LinkedList<Integer> result = new LinkedList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode p = root;
+        while(!stack.isEmpty() || p != null) {
+            if(p != null) {
+                stack.push(p);
+                result.addFirst(p.val);  // Reverse the process of preorder
+                p = p.right;             // Reverse the process of preorder
+            } else {
+                TreeNode node = stack.pop();
+                p = node.left;           // Reverse the process of preorder
+            }
+        }
+        return new ArrayList<Integer>(result);
+    }
+
+    /**
+     * 层次遍历---非递归方式,思想类似BFS(宽度优先)，使用队列实现
      *
      * @param root
      * @return
@@ -154,10 +256,8 @@ public class OrderTest {
                     queue.offer(head.right);
                 }
             }
-
             tree.add(list);
         }
-
         return  tree;
     }
 

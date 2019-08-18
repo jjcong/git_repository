@@ -50,10 +50,9 @@ public class CountDownLatchTest {
     public static void main(String[] args) {
         new BossThread().start();
 
-        for (int i = 0; i < countDownLatch.getCount(); i++) {
+        for (int i = 0; i < 5; i++) {
             new EmployeeThread().start();
         }
     }
-
 
 }

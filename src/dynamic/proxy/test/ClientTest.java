@@ -2,6 +2,8 @@ package dynamic.proxy.test;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @author j_cong
@@ -12,7 +14,6 @@ import java.lang.reflect.Proxy;
 public class ClientTest {
 
 	public static void main(String[] args) {
-
 		RealSubject realSubject = new RealSubject();
 		InvocationHandler handler = new DynamicProxySubject(realSubject);
 		

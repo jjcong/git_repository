@@ -49,4 +49,23 @@ public class MaxWindows {
         return res;
     }
 
+    public ArrayList<Integer> maxInWindows2(int [] num, int size)
+    {
+        ArrayList<Integer> res = new ArrayList<>();
+        if (size > num.length || size < 1) {
+            return res;
+        }
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);
+        for (int i = 0; i < size; i++) {
+            maxHeap.add(num[i]);
+        }
+        res.add(maxHeap.peek());
+        for (int i = 1; i + size - 1 < num.length; i++) {
+            maxHeap.remove(num[i - 1]);
+            maxHeap.add(num[i + size - 1]);
+            res.add(maxHeap.peek());
+        }
+        return res;
+    }
+
 }

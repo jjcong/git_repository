@@ -12,7 +12,7 @@ public class ThreadUnsafeSingleton {
 	private static ThreadUnsafeSingleton instance = null;
 	
 	//私有构造方法，防止被实例化
-	private ThreadUnsafeSingleton() {};
+	private ThreadUnsafeSingleton() {}
 	
 	//静态工程方法，创建实例
 	public static ThreadUnsafeSingleton getInstance() {

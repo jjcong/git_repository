@@ -25,13 +25,15 @@ public class MapUtils {
         List<Map.Entry<String,Integer>> list = new ArrayList<>();
 
         System.out.println("对HashMap实现的Map进行Value排序并打印：");
-        rankMapByValue(hashMap, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                // TODO Auto-generated method stub
-                return Integer.compare(o1, o2);
-            }
-        });
+
+        rankMapByValue(hashMap, (a,b) -> Integer.compare(a, b));
+//        rankMapByValue(hashMap, new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                // TODO Auto-generated method stub
+//                return Integer.compare(o1, o2);
+//            }
+//        });
 
         System.out.println();
 

@@ -26,7 +26,7 @@ public class RemoveDuplication {
         removeDup(list);
     }
     public static List<Integer> removeDup(List list) {
-        Set<Integer> set = new HashSet<Integer>(list);
+        Set<Integer> set = new HashSet<>(list);
         list.clear();
         list.addAll(set);
 

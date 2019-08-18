@@ -15,7 +15,7 @@ public class ArrayPermuteTest {
     public static void main(String[] args) {
 
         ArrayPermuteTest test = new ArrayPermuteTest();
-        int[] arr = {1, 2, 3};
+        int[] arr = {1, 1, 2, 3};
 
         test.permute(arr);
     }
@@ -43,10 +43,12 @@ public class ArrayPermuteTest {
             for (int i = 0; i <= end; i++) {
                 tmp.add(nums[i]);
             }
+            System.out.println(tmp);
             result.add(tmp);
 
         } else {
             for (int j = start; j <= end; j++) {
+                if(j != start && nums[j] == nums[start]) continue;
                 swap(nums, j, start);
                 permute(nums, start + 1, end);
                 swap(nums, j, start);

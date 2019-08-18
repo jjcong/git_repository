@@ -15,6 +15,7 @@ public class FibonacciTest {
     public static void main(String[] args) {
 
 //        System.out.println(fibonacci1(100));
+
         System.out.println(fibonacci2(60));
     }
 
